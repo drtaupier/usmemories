@@ -1,9 +1,44 @@
 export class UI{
+    stickyNav(){
+        window.addEventListener('scroll', function(){
+            const header = document.getElementById('header');
+            let headerPositionTop = header.getBoundingClientRect().top;
+            //console.log('Position Header top: ', headerPositionTop)
+            let positionY = window.scrollY;
+            //console.log('PositionY:', positionY)
+            if(headerPositionTop < positionY){
+                header.classList.add('sticky');
+            }else{
+                header.classList.remove('sticky');
+            }
+        })
+    }
+
+    textInicio(texto){
+        const inicio = document.getElementById('inicio');
+        const element = document.createElement('div');
+        element.classList.add('textInicio');
+        element.innerHTML = `${texto}`;
+        inicio.appendChild(element);
+    }
+
+    animate(){
+        window.addEventListener('scroll', function(){
+            const title = document.getElementById('title');
+            const titleTop = title.getBoundingClientRect().top;
+            const cursos = document.querySelector('.cursos-lista');
+            let screenSize = window.innerHeight/1.2;
+            // console.log('scroll: ', screenSize);
+            if(titleTop < screenSize){
+                cursos.classList.add('cursos-disponibles-activo');
+            }
+        })
+    }
     footer(){
         const today = new Date();
         const year = today.getFullYear();
         const footer = document.getElementById('footer');
-        footer.innerHTML = `<h3>U.S. Memories</h3>`;
-        footer.innerHTML += `<h2>Copyrigth &copy; ${year}</h2>`;
+        footer.innerHTML = `<h4>U.S. Memories</h4>`;
+        footer.innerHTML += `<h5>Copyrigth &copy; ${year}</h5>`;
     }
 }
