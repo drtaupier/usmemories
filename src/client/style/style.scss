@@ -1,3 +1,13 @@
+$fondo-dark: #000;
+$fondo-claro: #f3f3f3;
+$fondo-blanco: #fff;
+$fonts-orange: #D2691E;
+$fonts-claro: #f3f3f3;
+$fonts-automatic: #000;
+$fonts-icons: #7B2894;
+$fonts-white: #fff;
+$fonts-grease: #ccc;
+
 *{
     padding: 0;
     margin: 0;
@@ -5,10 +15,540 @@
 }
 
 body{
-    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
 
+html{
+    font-family: 'Nanum Gothic', sans-serif;
+    scroll-behavior: smooth;
+    background: $fonts-claro;
+    overflow-x: hidden;
+}
+
 .container{
+    min-width: 370px;
+    width: 100vw;
     display: grid;
+    grid-column: repeat(4, 1fr);
+    grid-row: repeat(6, auto);
+    grid-template-areas: 
+    "header header header header"
+    "section1 section1 section1 section1" /*inicio*/
+    "section2 section2 section2 section2" /*cursos*/
+    "section3 section3 section3 section3" /*otros*/
+    "section4 section4 section4 section4" /*nosotros*/
+    "footer footer footer footer";
+}
+
+header{
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $fondo-dark;
+    height: 100px;
+    width: 100vw;
+}
+
+header .logo{
+    width: 40%;
+}
+
+.logo h1{
+    color: $fonts-claro;
+    font-size:1.8em;
+    margin-left: 60px;
+}
+
+/* Menu de navegación
+Es importante que la etiqueta nav tenga la clase navegación
+La etiqueta ul tenga la clase menu
+y nuestra clase submenu */
+
+header .navegacion{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header .navegacion .menu{
+    display: flex;
+    list-style: none;
+    margin-right: 60px;
+    margin-top: 10px;
+}
+
+.menu>ul li, a{
+    display: inline-block;
+	padding: 15px 20px;
+	color: $fonts-white;
+	font-family: 'Nanum Gothic', sans-serif;;
+	text-decoration: none;
+}
+
+header ul li, a:hover{
+    color: $fonts-grease;
+    transition: all .1s;
+}
+
+/* Submenu */
+.submenu{
+	position: absolute;
+	background: $fondo-dark;
+	width: 120%;
+	visibility: hidden;
+	opacity: 0;
+	/* transition: opacity 0.5s; */
+}
+
+.submenu li, a{
+	display: block;
+	list-style: none;
+	padding: 10px 20px;
+	color: $fonts-white;
+	font-family: 'Nanum Gothic', sans-serif;
+	text-decoration: none;
+}
+
+.menu li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
+}
+
+/***********************************************/
+
+section{
+    height: 800px;
+    width: 100vw;
+}
+
+#inicio{
+    width: 100vw;
+    grid-area: section1;
+}
+
+#inicio>.imagen{
+    width: 100vw;
+    height: 100%;
+    background-image: url('./../multimedia/image/prueba2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#inicio a i{
+    color: $fondo-blanco;
+    font-size: 40px;
+    position: relative;
+    bottom:100px;
+    left:50vw;
+    animation: subir-bajar ease 1s infinite;
+    -webkit-animation: subir-bajar ease 1s infinite;
+    -webkit-animation: subir-bajar ease 1s infinite ;
+}
+
+#cursos{
+    grid-area: section2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cursos>article{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cursos>article>h2{
+    font-size: 2.2em;
+    margin-top: 130px;
+}
+
+#cursos>article>.cursos-lista{
+    width: 80%;
+    height: 100%;
+    min-width: 400px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 150px 0 100px 0;
+    top: 0;
+}
+
+.cursosDisponibles:nth-child(1) .imagen-curso{
+    background-image: url('../multimedia/image/imagen1.jpg');
+}
+
+.cursosDisponibles:nth-child(2) .imagen-curso{
+    background-image: url('./../multimedia/image/imagen2.jpg');
+}
+
+.cursosDisponibles:nth-child(3) .imagen-curso{
+    background-image: url('./../multimedia/image/img1.jpg');
+}
+
+.cursosDisponibles:nth-child(4) .imagen-curso{
+    background-image: url('./../multimedia/image/img2.jpeg');
+}
+
+.barra{
+    height: 12px;
+    width: 100%;
+}
+
+.imagen-curso{
+    position: relative;
+    top: 0;
+    height: 70%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* background-image: url("../multimedia/pictures/imagen1.jpg"); */
+}
+
+.cursosDisponibles:nth-child(1) .barra{
+    background-color: #0CE62C;
+}
+
+.cursosDisponibles:nth-child(2) .barra{
+    background: #323D80;
+}
+
+.cursosDisponibles:nth-child(3) .barra{
+    background: #FF4732;
+}
+
+.cursosDisponibles:nth-child(4) .barra{
+    background: #5A6FE6;
+}
+
+.cursoName{
+    background: $fondo-blanco;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cursoName h2{
+    font-size: 1.3em;
+    margin-top: 15px;
+}
+
+.cursoName a{
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+
+#parte3{
+    grid-area: section3;
+}
+
+#parte3 article{
+    width: 100%;
+    height: 100%;
+    background: $fondo-blanco;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#parte3 .img{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen1{
+    width: 400px;
+    height: 400px;
+    background-image: url('./../multimedia//image/imag2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 40px;
+}
+
+#text1{
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 200px 0 40px;
+    /* background: #000; */
+}
+
+#text1 p{
+    text-align: justify;
+    margin-right: 20px;
+}
+
+#nosotros{
+    grid-area: section4;
+}
+
+#footer{
+    grid-area: footer;
+    height: 100px;
+    background: $fondo-dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#footer h4, h5{
+    color: $fondo-claro;
+    font-weight: 500;
+    font-size: 1.2em;
+} 
+
+#footer h5{
+    margin-top: 8px;
+    font-size: 0.9em;
+}
+
+/* Class */
+.sticky{
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0px 4px 3px rgba(0,0,0,.5);
+    height: 80px;
+    width: 100vw;
+    transition: all 0.3s;
+}
+
+/* Cursos */
+.cursosDisponibles{
+    width: 340px;
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 8px 6px 5px 2px rgba(207,207,207,0.73);
+    -moz-box-shadow: 8px 6px 5px 2px rgba(207,207,207,0.73);
+    box-shadow: 8px 6px 5px 2px rgba(207,207,207,0.73);
+    /* border: #7B2894 1px solid; */    
+}
+
+.cursosDisponibles:hover{
+    transform: scale(1.04,1.04);
+    transition: ease-in-out 0.05s;
+}
+
+.listaActiva{
+    background: $fonts-orange;
+    font-weight: 500;
+}
+
+.cursos-disponibles-activo{
+    animation: cursos 2.5s;
+}
+
+/* Nosotros */
+#nosotros{
+    grid-area: section4;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.staff{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.staff>.info-imag{
+    width: 25.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-imag .icono{
+    font-size: 6em;
+    color: $fonts-icons;
+    padding: 20px;
+}
+
+.info-imag h6{
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: $fonts-automatic;
+    font-family: 'Titillium Web',
+    sans-serif;
+}
+
+.info-imag p{
+    text-align: justify;
+    margin-top: 8px;
+    line-height: 22px;
+}
+
+.textInicio{
+    color: $fonts-orange;
+    font-size: 50px;
+    text-align: left;
+    position: relative;
+    bottom: 528px;
+    left: 80px;
+    z-index: 100;
+    font-weight: 900;
+    animation: textInicio 4.3s ease;
+    -webkit-animation: textInicio 4.3s ease;
+}
+
+/* Animaciones */
+@keyframes cursos{
+    0% {
+        transform: translateY(-150px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes subir-bajar{
+    0%{ transform:translateY(20px); -webkit-transform:translateY(20px); -moz-transform:translateY(20px); -ms-transform:translateY(20px); -o-transform:translateY(20px); }
+    25%{ transform:translateY(0) ; -webkit-transform:translateY(0) ; -moz-transform:translateY(0) ; -ms-transform:translateY(0) ; -o-transform:translateY(0) ; }
+    100%{ transform:translateY(20px) ; -webkit-transform:translateY(20px) ; -moz-transform:translateY(20px) ; -ms-transform:translateY(20px) ; -o-transform:translateY(20px) ; }
+}
+
+@keyframes textInicio {
+    0% {
+        transform: translateY(-90px);
+        -webkit-transform: translateY(-90px);
+        -moz-transform: translateY(-90px);
+        -ms-transform: translateY(-90px);
+        -o-transform: translateY(-90px);
+        opacity: 0;
+}
+
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        opacity: 1;
+}
+}
+
+/* Mediaqueries */
+@media only screen and (max-width: 1679px){
+    #cursos{
+        height: auto;
+    }
+    .cursosDisponibles{
+        margin: 20px;
+    }
+}
+
+@media only screen and (max-width: 1157px){
+    .navegacion ul li, a{
+        padding: 12px;
+    }
+
+    #cursos{
+        height: auto;
+    }
+    .cursosDisponibles{
+        margin: 20px;
+    }
+}
+
+@media only screen and (max-width: 1048px){
+    .navegacion ul li, a{
+        padding: 10px;
+    }
+    .cursosDisponibles{
+        margin: 20px;
+    }
+}
+
+@media only screen and (max-width: 978px){
+   header{
+       justify-content: center;
+       flex-direction: column;
+       height: auto;
+   }
+   
+   header .navegacion{
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+    }
+
+    header .logo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .logo h1{
+        margin: 0;
+    }
+
+    #cursos{
+        height: auto;
+    }
+
+    .cursosDisponibles{
+        margin: 20px;
+    }
+
+    #cursos>article>h2{
+        margin-top: 40px;
+    }
+    
+    article>.cursos-lista{
+        margin-top: -80px;
+        padding: 20px 0 40px 0;
+    }
+}
+
+/* Aqui se debe hacer el menu con un ícono. */
+@media only screen and (max-width: 487px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "section1"
+        "section2"
+        "section3"
+        "section4"
+        "footer";
+    }
+
+    .navegacion ul li,a{
+        font-size: 1em;
+    }
 }
