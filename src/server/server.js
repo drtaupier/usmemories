@@ -15,6 +15,11 @@ app.use(cors());
 //Initialize the main project folder
 app.use(express.static('./dist'));
 
+//Get route
+app.get('/', (req,res)=>{
+    res.sendFile('dist/index.html')
+})
+
 const port = 3000;
 const server = app.listen(port, listening);
 
