@@ -1,4 +1,25 @@
 export class UI{
+
+    cursos(respuesta){
+        const listaCursos = document.getElementById('cursos-lista');
+        const element = document.createElement('element');
+        element.classList.add('cursosDisponibles');
+        listaCursos.appendChild(element);
+        const imagen = document.createElement('div');
+        imagen.classList.add('imagen-curso');
+        imagen.innerHTML = `<img src="./../multimedia/image/${respuesta}"></img>`;
+        element.appendChild(imagen);
+        const barra = document.createElement('div');
+        barra.classList.add('barra');
+        element.appendChild(barra);
+        const info = document.createElement('div');
+        info.classList.add('cursoName');
+        info.innerHTML = `<h2>${respuesta}</h2>`;
+        info.innerHTML += `<h2>${respuesta}</h2>`;
+        info.innerHTML += `<h2>${respuesta}</h2>`;
+        element.appendChild(info);
+    }
+
     stickyNav(){
         window.addEventListener('scroll', function(){
             const header = document.getElementById('header');
