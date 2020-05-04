@@ -1,22 +1,22 @@
 export class UI{
 
-    cursos(respuesta){
+    cursos(curso){
         const listaCursos = document.getElementById('cursos-lista');
         const element = document.createElement('element');
         element.classList.add('cursosDisponibles');
         listaCursos.appendChild(element);
         const imagen = document.createElement('div');
         imagen.classList.add('imagen-curso');
-        imagen.innerHTML = `<img src="./../multimedia/image/${respuesta}"></img>`;
+        imagen.innerHTML = `<img src="image/${curso.imagen}"></img>`;
         element.appendChild(imagen);
         const barra = document.createElement('div');
         barra.classList.add('barra');
         element.appendChild(barra);
         const info = document.createElement('div');
         info.classList.add('cursoName');
-        info.innerHTML = `<h2>${respuesta}</h2>`;
-        info.innerHTML += `<h2>${respuesta}</h2>`;
-        info.innerHTML += `<h2>${respuesta}</h2>`;
+        info.innerHTML = `<h2>${curso.curso}</h2>`;
+        info.innerHTML += `<h2>${curso.informe}</h2>`;
+        info.innerHTML += `<h2>${curso.precio}</h2>`;
         element.appendChild(info);
     }
 

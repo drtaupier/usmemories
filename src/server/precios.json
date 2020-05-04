@@ -1,0 +1,28 @@
+{
+    "cursos": [
+        {
+            "imagen": "imagen1.jpg",
+            "curso": "Marketing",
+            "informe": "informes",
+            "precio": 19.99
+        },
+        {
+            "imagen": "imagen2.jpg",
+            "curso": "E-Commerce",
+            "informe": "informes",
+            "precio": 19.99
+        },
+        {
+            "imagen": "img1.jpg",
+            "curso": "E-Commerce",
+            "informe": "informes",
+            "precio": 19.99
+        },
+        {
+            "imagen": "img2.jpeg",
+            "curso": "Programación Movil",
+            "informe": "informes",
+            "precio": 19.99
+        }
+    ]
+}
