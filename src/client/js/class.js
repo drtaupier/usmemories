@@ -7,7 +7,7 @@ export class UI{
         listaCursos.appendChild(element);
         const imagen = document.createElement('div');
         imagen.classList.add('imagen-curso');
-        imagen.innerHTML = `<img src="image/${curso.imagen}"></img>`;
+        imagen.innerHTML = `<img src="image/${curso.imagen}">`;
         element.appendChild(imagen);
         const barra = document.createElement('div');
         barra.classList.add('barra');
@@ -15,8 +15,8 @@ export class UI{
         const info = document.createElement('div');
         info.classList.add('cursoName');
         info.innerHTML = `<h2>${curso.curso}</h2>`;
-        info.innerHTML += `<h2>${curso.informe}</h2>`;
-        info.innerHTML += `<h2>${curso.precio}</h2>`;
+        info.innerHTML += `<a href="#">${curso.informe}</a>`;
+        info.innerHTML += `<p>$ ${curso.precio}</p>`;
         element.appendChild(info);
     }
 
@@ -47,7 +47,7 @@ export class UI{
         window.addEventListener('scroll', function(){
             const title = document.getElementById('title');
             const titleTop = title.getBoundingClientRect().top;
-            const cursos = document.querySelector('.cursos-lista');
+            const cursos = document.querySelector('#cursos-lista');
             let screenSize = window.innerHeight/1.2;
             // console.log('scroll: ', screenSize);
             if(titleTop < screenSize){

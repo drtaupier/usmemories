@@ -1,5 +1,6 @@
 //Dotenv
 require('dotenv').config();
+const path = require('path');
 //Configure Request
 const Request = require('request');
 //Express to run server and routes
