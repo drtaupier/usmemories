@@ -137,6 +137,7 @@ section{
 #inicio>.imagen>img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 #inicio a i{
@@ -192,8 +193,8 @@ section{
 .imagen-curso img{
     width: 100%;
     height: 100%;
-    max-width: 340px;
     max-height: 180px;
+    object-fit: cover;
 }
 
 .cursosDisponibles>.barra{
@@ -271,11 +272,12 @@ section{
 #imagen1{
     width: 400px;
     height: 400px;
-    //background-image: url('./../multimedia//image/imag2.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-left: 40px;
+}
+
+#imagen1>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #text1{
